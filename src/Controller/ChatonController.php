@@ -24,4 +24,16 @@ class ChatonController extends AbstractController
             'list_cat' => $listCar,
         ]);
     }
+
+    /**
+     * @Route("/detail/{id}", name="detailByid")
+     */
+    public function getCatById($id, CatRepository $catRepository){
+
+        $catbyId = $catRepository->findBy(array('id' => $id));
+
+        return $this->render('chaton/detail.html.twig',[
+            'detailId' => $catbyId,
+        ]);
+    }
 }

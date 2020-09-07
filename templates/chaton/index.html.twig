@@ -13,7 +13,7 @@
                     <p>{{ cat.description }}</p>
                 </div>
                 <div class="card-action">
-                    <a href="#">view detail</a>
+                    <a href="{{ path('chaton_detailByid' , {'id' : cat.id }) }}">view detail</a>
                 </div>
             </div>
         </div>
