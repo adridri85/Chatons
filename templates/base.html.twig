@@ -3,10 +3,17 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <link href="{{ asset("Css/materialize.min.css") }}" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+        <link href="{{ asset("Css/Mycss.css") }}" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="{{ asset("Js/materialize.min.js") }}" rel="stylesheet"s></script>
     </head>
+    <header>
+        {% include('header/header.html.twig') %}
+    </header>
     <body>
-        {% block body %}{% endblock %}
+        {% block main %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
 </html>
