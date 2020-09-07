@@ -38,9 +38,9 @@ class Cat
     private $price;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="date")
      */
-    private $dateCreated;
+    private $datecreated;
 
     /**
      * @ORM\Column(type="boolean")
@@ -100,14 +100,14 @@ class Cat
         return $this;
     }
 
-    public function getDateCreated(): ?\DateTimeInterface
+    public function getDatecreated(): ?\DateTimeInterface
     {
-        return $this->dateCreated;
+        return $this->datecreated;
     }
 
-    public function setDateCreated(\DateTimeInterface $dateCreated): self
+    public function setDatecreated(\DateTimeInterface $datecreated): self
     {
-        $this->dateCreated = $dateCreated;
+        $this->datecreated = $datecreated;
 
         return $this;
     }
