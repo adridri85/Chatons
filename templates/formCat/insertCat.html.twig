@@ -1,0 +1,43 @@
+{%  extends('base.html.twig') %}
+
+{% block main  %}
+    <h3 class="center-align">Ajouter un chat</h3>
+
+<div class="container row center-align">
+    <form enctype="multipart/form-data" class="input-field col s12" action="#" method="post">
+        {{ form_start(form_cat) }}
+        <div class="input-field col s6">
+            {{ form_widget(form_cat.name) }}
+            {{ form_label(form_cat.name) }}
+        </div>
+        <div class="input-field col s6">
+            {{ form_widget(form_cat.description) }}
+            {{ form_label(form_cat.description) }}
+        </div>
+        <div class="input-field col s6">
+            {{ form_widget(form_cat.price) }}
+            {{ form_label(form_cat.price) }}
+        </div>
+
+        <div class="file-field input-field col s6">
+            <div class="btn">
+                <span>{{ form_label(form_cat.picture) }}</span>
+                {{ form_widget(form_cat.picture) }}
+            </div>
+            <div class="file-path-wrapper">
+                <input class="file-path validate" type="text">
+            </div>
+        </div>
+        <div class="center-align">
+            <button class="waves-effect waves-light btn">Ajouter le miaou !</button>
+        </div>
+        {{ form_end(form_cat) }}
+    </form>
+    <script>
+        $(document).ready(function() {
+            $('input#input_text, textarea#textarea2').characterCounter();
+        });
+    </script>
+</div>
+
+{% endblock %}
