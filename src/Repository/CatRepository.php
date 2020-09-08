@@ -19,6 +19,17 @@ class CatRepository extends ServiceEntityRepository
         parent::__construct($registry, Cat::class);
     }
 
+
+    public function findCatByName($name){
+
+        return $this->createQueryBuilder("c")
+            ->andWhere('c.name LIKE :name')
+            ->setParameter('name','%'.$name.'%' )
+            ->getQuery()
+            ->getResult();
+    }
+
+
     // /**
     //  * @return Cat[] Returns an array of Cat objects
     //  */

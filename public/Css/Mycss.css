@@ -6,3 +6,16 @@
 #addIdeaDiv{
     margin-top: 2.5%;
 }
+
+.chatonImg{
+    width: 25%;
+    height: 20%;
+}
+
+.divChatonList{
+    width: 30%;
+    float: left;
+    height: 1000px;
+    margin-left: 1%;
+    margin-bottom: 1%;
+}
