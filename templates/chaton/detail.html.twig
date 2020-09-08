@@ -5,9 +5,16 @@
     <div class="container">
         <h3 class="center-align">{{ detailId[0].name }}</h3>
 
+        <div class="">
+            <img src="{{ asset('img/'~ detailId[0].filename )}}"/>
+        </div>
+
+
         <p> {{ detailId[0].description }}</p>
 
+        <h5>Price : {{ detailId[0].price }}</h5>
 
+        <h5>Date de creation : {{ detailId[0].datecreated | date("Y-m-D") }}</h5>
 
     </div>
 
