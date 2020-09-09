@@ -7,7 +7,6 @@
     margin-top: 2.5%;
 }
 
-
 #titre-header {
     margin-left: 10px;
 }
@@ -18,9 +17,14 @@
 }
 
 .divChatonList{
-    width: 30%;
+    width: 32%;
     float: left;
     height: 1000px;
     margin-left: 1%;
     margin-bottom: 1%;
+}
+
+.imgDetail{
+    width: 550px;
+    height: 242px;
 }

@@ -10,14 +10,23 @@
 
     {%  for cat in list_cat %}
     <div class="divChatonList">
+        <input id="searchBar" onkeyup="searchMusic()" placeholder="recherche des chathons">
+    </div>
+
+    <div id="fristDiv">
+    {%  for cat in list_cat %}
+    <div id="test" class="divChatonList">
         <div class="col s4 m4">
             <div class="card blue-grey darken-1">
                 <div class="card-image">
                     <img src="{{ asset('img/'~ cat.filename )}}"/>
                     <span class="card-title">{{ cat.name }}</span>
+                    <span id="leTest" class="card-title">{{ cat.name }}</span>
                 </div>
                 <div class="card-content white-text">
                     <p>{{ cat.description }}</p>
+                    <h6> Price : {{ cat.price }} </h6>
+                    <h6>Date de creation : {{ cat.datecreated | date("Y-m-D") }} </h6>
                 </div>
                 <div class="card-action">
                     <a href="{{ path('chaton_detailByid' , {'id' : cat.id }) }}">view detail</a>
@@ -26,5 +35,26 @@
         </div>
     </div>
     {% endfor %}
-
+    </div>
+    <script>
+        function searchMusic() {
+            var input, filter, table, tr, td, i,divChach ;
+            input = document.getElementById("searchBar"); //contenu de l'input dans la barre de recherche
+            filter = input.value.toUpperCase(); //
+            table = document.getElementById("fristDiv"); //contenu de latable
+            tr = table.getElementsByClassName("divChatonList") //contenu de la ligne
+            divChach = document.getElementById("test");
+            for (i = 0; i < tr.length; i++) {
+                tdTitre = tr[i].getElementsByClassName("card-title")[0];
+                if ((tdTitre)) {
+                    console.log(tdTitre)
+                    if ((tdTitre.innerHTML.toUpperCase().indexOf(filter) > -1)){
+                        tr[i].style.display = "";
+                    }else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
 {% endblock %}

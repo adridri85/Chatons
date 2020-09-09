@@ -80,7 +80,6 @@ class ChatonController extends AbstractController
 
             return $this->redirectToRoute("chaton_list");
 
-
         }
 
         return $this->render("formCat/insertCat.html.twig", ['form_cat' => $catForm->createView()]);
