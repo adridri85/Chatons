@@ -22,6 +22,7 @@ class PanierController extends AbstractController
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
         return $this->render("panier/panier.html.twig");
-
     }
+
+    
 }
