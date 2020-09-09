@@ -17,7 +17,7 @@
 
         {% if is_granted('IS_AUTHENTICATED_FULLY')%}
             <div class="center-align">
-                <a class="waves-light waves-effect btn">Ajouter au panier</a>
+                <a class="waves-light waves-effect btn" href="{{ path('panier_addCat' ,{'id' : detailId[0].id}) }}">Ajouter au panier</a>
             </div>
         {% endif %}
 
