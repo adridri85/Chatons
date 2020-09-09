@@ -13,8 +13,13 @@
         <p> {{ detailId[0].description }}</p>
 
         <h5>Price : {{ detailId[0].price }}</h5>
-
         <h5>Date de creation : {{ detailId[0].datecreated | date("Y-m-D") }}</h5>
+
+        {% if is_granted('IS_AUTHENTICATED_FULLY')%}
+            <div class="center-align">
+                <a class="waves-light waves-effect btn">Ajouter au panier</a>
+            </div>
+        {% endif %}
 
     </div>
 

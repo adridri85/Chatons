@@ -6,5 +6,18 @@
 
     <h3 class="center-align">Pages du panier</h3>
 
-
+    <table>
+        <thead>
+            <tr>
+                <th>Mon panier</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in myPanier %}
+                <tr>
+                    <td>{{ p }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}
