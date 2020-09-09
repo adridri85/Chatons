@@ -1,0 +1,35 @@
+{% extends 'header/headerInscrip.html.twig' %}
+
+{% block main %}
+
+<h3 class="center-align"> {{ title }} </h3>
+
+<div class="container">
+<div class="row center-align">
+    <form class="col s12" action="#" method="post">
+         {{ form_start(form_ins) }}
+        <div class="input-field col s6">
+                {{ form_widget(form_ins.email) }}
+                {{ form_label(form_ins.email) }}
+        </div>
+        <div class="input-field col s6">
+                {{ form_widget(form_ins.login) }}
+                {{ form_label(form_ins.login) }}
+        </div>
+        <div class="input-field col s6">
+                {{ form_widget(form_ins.name) }}
+                {{ form_label(form_ins.name) }}
+        </div>
+        <div class="input-field col s6">
+                {{ form_widget(form_ins.pass) }}
+                {{ form_label(form_ins.pass) }}
+        </div>
+        <div class="input-field col s12">
+            <button class="waves-effect waves-light btn">Crée compte</button>
+            <a href="{{ path('login') }}" class="waves-effect waves-light btn red">Annuller</a>
+        </div>
+        {{ form_end(form_ins) }}
+    </form>    
+
+{% endblock %}
+

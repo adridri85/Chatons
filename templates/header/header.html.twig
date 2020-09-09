@@ -3,17 +3,29 @@
         <a href="#" class="brand-logo">App chatons</a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li>Bienvenue : {% if is_granted('IS_AUTHENTICATED_FULLY')%}{{ app.user.name }}{% else %} Non connecter {% endif %} </li>
             <li><a href="{{ path('Pages') }}">Home</a></li>
             <li><a href="{{ path('chaton_list') }}">chatons</a></li>
             <li><a href="{{ path('chaton_add_NewCat') }}"> ajout chat</a></li>
-            <li><a href="">About Us</a></li>
+            <li><a href="{{ path('panier_view') }}"><i class="material-icons">shopping_cart</i></a></li>
+            {% if is_granted('IS_AUTHENTICATED_FULLY')%}
+            <li><a href="{{ path('logOut') }}">Se déconnecter</a></li>
+            {% else %}
+            <li><a href="{{ path('logOut') }}">Se Connecter</a></li>
+            {% endif %}
         </ul>
     </div>
 </nav>
 <ul class="sidenav" id="mobile-demo">
-    <li><a href="">Home</a></li>
-    <li><a href="">test</a></li>
-    <li><a href="">About Us</a></li>
+    <li><a href="{{ path('Pages') }}">Home</a></li>
+    <li><a href="{{ path('chaton_list') }}">chatons</a></li>
+    <li><a href="{{ path('chaton_add_NewCat') }}"> ajout chat</a></li>
+    <li><a href="{{ path('panier_view') }}"><i class="material-icons">shopping_cart</i></a></li>
+    {% if is_granted('IS_AUTHENTICATED_FULLY')%}
+    <li><a href="{{ path('logOut') }}">Se déconnecter</a></li>
+    {% else %}
+    <li><a href="{{ path('logOut') }}">Se Connecter</a></li>
+    {% endif %}
 </ul>
 <script>
     $(document).ready(function(){

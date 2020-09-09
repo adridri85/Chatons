@@ -1,0 +1,32 @@
+{% extends 'header/headerInscrip.html.twig' %}
+
+{% block main %}
+
+    {{ error }}
+    <h3 class="center-align">Bienvenue sur la pages de connection</h3>
+
+    <div class="row center-align container">
+        <form action="{{ path('login') }}" method="post" class="col s12">
+            <div class="input-field col s12">
+                <input type="text" id="username" name="_username" value="{{ last_username }}"/>
+                <label for="username">Username :</label>
+            </div>
+            <div class="input-field col s12">
+                <input type="password" id="password" name="_password"/>
+                <label for="password">Password :</label>
+            </div>
+
+
+            {#   If you want to control the URL the user
+               is redirected to on success (more details below) #}
+
+            <input type="hidden" name="_target_path" value="Pages"/>
+
+
+            <button class="waves-effect waves-light btn" type="submit">login</button>
+            <a href="{{ path('register') }}"><button type="button" class="waves-effect waves-light btn">S'incrir</button></a>
+            <a href="{{ path('Pages') }}" class="waves-effect waves-light btn red">je veux pas me connecter</a>
+        </form>
+    </div>
+    </html>
+{% endblock %}
