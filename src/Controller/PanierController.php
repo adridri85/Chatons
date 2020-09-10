@@ -31,8 +31,6 @@ class PanierController extends AbstractController
 
         $panier = $panierRepository->fingAllPanier($this->getUser()->getId());
 
-        dd($panier);
-
         return $this->render("panier/panier.html.twig",[
             'myPanier' => $panier
         ]);
@@ -41,13 +39,17 @@ class PanierController extends AbstractController
     /**
      * @Route("/new/{id}", name="addCat")
      */
-    public function getInsertCatsOnPannier(EntityManagerInterface $entityManager, Request $request,CatRepository $catRepository,$id){
+    public function getInsertCatsOnPannier(EntityManagerInterface $entityManager, Request $request,CatRepository $catRepository,$id,PanierRepository $panierRepository){
 
         $cat = $catRepository->find(array('id' => $id ));
 
-        $panier = new Panier();
+        $panier = $panierRepository->findOneBy(array('account' => $this->getUser()));
 
-        $panier->setAccount($this->getUser());
+        if($panier == false){
+            $panier = new Panier();
+            $panier->setAccount($this->getUser());
+        }
+
         $panier->addCat($cat);
 
         $entityManager->persist($panier);

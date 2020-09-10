@@ -25,13 +25,26 @@ class PanierRepository extends ServiceEntityRepository
      */
     public function fingAllPanier($id)
     {
-        return $this->createQueryBuilder('p')
-            ->join('p.account','a')
-            ->andwhere('p.id = :id')
-            ->setParameter('id', $id)
+
+        return $this->createQueryBuilder("p")
+            ->join("p.account","a")
+            ->leftJoin("p.cats","c")
+            ->andWhere("a.id = :id")
+            ->setParameter('id',$id)
             ->getQuery()
-            ->getResult();
+            ->getOneOrNullResult();
+
+        /*$em = $this->getEntityManager();
+
+        $dql = "select c from App\Entity\Panier p join App\Entity\Account a on a.id = p.account join App\Entity\Cat c on c.panier = p.id WHERE a.id = :id";
+
+        $query = $em->createQuery($dql)->setParameter('id', $id);
+
+        return $query->getResult();*/
+
     }
+
+
 
     // /**
     //  * @return Panier[] Returns an array of Panier objects
